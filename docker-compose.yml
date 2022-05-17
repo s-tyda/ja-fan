@@ -1,0 +1,12 @@
+﻿version: "3"
+
+services:
+  prod:
+    build:
+      context: .
+      dockerfile: ja-fan/Dockerfile
+      args:
+        - NODE_ENV=local
+    ports:
+      - "5080:80"
+      - "5443:443"
