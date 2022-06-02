@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ja_fan.Data;
 
@@ -10,9 +11,10 @@ using ja_fan.Data;
 namespace ja_fan.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220602112324_CosZmienilem")]
+    partial class CosZmienilem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -24,7 +26,6 @@ namespace ja_fan.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -39,7 +40,6 @@ namespace ja_fan.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("TeamId")
@@ -62,7 +62,6 @@ namespace ja_fan.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -271,7 +270,7 @@ namespace ja_fan.Data.Migrations
             modelBuilder.Entity("ja_fan.Models.Nickname", b =>
                 {
                     b.HasOne("ja_fan.Models.Team", "Team")
-                        .WithMany("Nicknames")
+                        .WithMany()
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -282,7 +281,7 @@ namespace ja_fan.Data.Migrations
             modelBuilder.Entity("ja_fan.Models.Team", b =>
                 {
                     b.HasOne("ja_fan.Models.Country", "Country")
-                        .WithMany("Teams")
+                        .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -339,16 +338,6 @@ namespace ja_fan.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ja_fan.Models.Country", b =>
-                {
-                    b.Navigation("Teams");
-                });
-
-            modelBuilder.Entity("ja_fan.Models.Team", b =>
-                {
-                    b.Navigation("Nicknames");
                 });
 #pragma warning restore 612, 618
         }
