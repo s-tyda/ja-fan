@@ -11,8 +11,8 @@ using ja_fan.Data;
 namespace ja_fan.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220602113859_Dzialaj")]
-    partial class Dzialaj
+    [Migration("20220615185914_migration3")]
+    partial class migration3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,7 @@ namespace ja_fan.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -40,6 +41,7 @@ namespace ja_fan.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("TeamId")
@@ -62,6 +64,7 @@ namespace ja_fan.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -4,7 +4,7 @@
 
 namespace ja_fan.Data.Migrations
 {
-    public partial class Dzialaj : Migration
+    public partial class migration3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
