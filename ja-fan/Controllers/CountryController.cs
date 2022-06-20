@@ -24,24 +24,6 @@ namespace ja_fan.Controllers
                           Problem("Entity set 'ApplicationDbContext.Country'  is null.");
         }
 
-        // GET: Country/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Country == null)
-            {
-                return NotFound();
-            }
-
-            var country = await _context.Country
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (country == null)
-            {
-                return NotFound();
-            }
-
-            return View(country);
-        }
-
         // GET: Country/Create
         public IActionResult Create()
         {

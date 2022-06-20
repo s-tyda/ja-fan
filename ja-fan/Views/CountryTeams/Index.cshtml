@@ -20,11 +20,10 @@
             </tr>
         </thead>
         <tbody>
-    @foreach (var team in Model.Teams) {
+    @foreach (var team in Model.Teams.OrderBy(t=>t.Name).ToList()) {
         if (team.Nicknames != null)
         {
-            
-            @foreach (var nickname in team.Nicknames)
+            @foreach (var nickname in team.Nicknames.OrderBy(n=>n.Name).ToList())
             {
                 <tr>
                     <td>

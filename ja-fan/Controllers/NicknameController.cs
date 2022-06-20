@@ -24,25 +24,6 @@ namespace ja_fan.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Nickname/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Nickname == null)
-            {
-                return NotFound();
-            }
-
-            var nickname = await _context.Nickname
-                .Include(n => n.Team)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (nickname == null)
-            {
-                return NotFound();
-            }
-
-            return View(nickname);
-        }
-
         // GET: Nickname/Create
         public IActionResult Create()
         {
