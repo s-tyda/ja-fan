@@ -1,12 +1,11 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
-ENV DOTNET_USE_POLLING_FILE_WATCHER 1
 EXPOSE 7226
 EXPOSE 5226
 WORKDIR /app
 
-COPY ja-fan/ .
-RUN dotnet restore
+COPY . .
+RUN dotnet restore "./ja-fan/ja-fan.csproj"
 RUN dotnet dev-certs https --clean
 RUN dotnet dev-certs https -t
 
-ENTRYPOINT ["dotnet", "watch", "run", "--no-restore"]
+ENTRYPOINT ["dotnet", "run", "--project", "./ja-fan/ja-fan.csproj"]

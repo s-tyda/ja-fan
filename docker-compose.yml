@@ -5,8 +5,31 @@ services:
     build:
       context: .
       dockerfile: ja-fan/Dockerfile
-      args:
-        - NODE_ENV=local
+#      args:
+#        - NODE_ENV=local
+#    volumes:
+#      - app_data:/app
+#    ports:
+#      - "5080:80"
+#      - "5443:443"  
     ports:
-      - "5080:80"
-      - "5443:443"
+      - "7226:7226"
+      - "5226:5226"
+    networks:
+      - "dotnet"
+    depends_on:
+      - "db"
+  
+  dotnet-db:
+    image: postgres:13
+    ports:
+      - "2345:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    networks:
+      - "dotnet"
+
+volumes:
+  postgres_data:

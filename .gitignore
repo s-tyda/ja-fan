@@ -457,3 +457,5 @@ $RECYCLE.BIN/
 *.aux
 *.toc
 *.synctex.gz
+
+.env
