@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ja_fan.Data;
+using ja_fan.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ja_fan.Data;
-using ja_fan.Models;
 
 namespace ja_fan.Controllers
 {
+    [Authorize]
     public class TeamController : Controller
     {
         private readonly ApplicationDbContext _context;

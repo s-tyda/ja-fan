@@ -1,0 +1,42 @@
+﻿@model ja_fan.Models.Country
+
+@{
+    ViewData["Title"] = "Nicknames - " + Model.Name;
+}
+
+<h1 class="display-4">@Model.Name</h1>
+
+<div>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Team
+                </th>
+                <th>
+                    Nickname
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var team in Model.Teams) {
+        if (team.Nicknames != null)
+        {
+            
+            @foreach (var nickname in team.Nicknames)
+            {
+                <tr>
+                    <td>
+                        @team.Name
+                    </td>
+                    <td>
+                        @nickname.Name
+                    </td>
+                </tr>
+            }
+        }
+    }
+        </tbody>
+    </table>
+</div>

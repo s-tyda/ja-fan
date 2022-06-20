@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using ja_fan.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ja_fan.Controllers;
 
